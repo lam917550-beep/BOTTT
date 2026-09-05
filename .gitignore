@@ -1,0 +1,16 @@
+node_modules/
+dist/
+web/dist/
+coverage/
+.env
+.env.local
+*.log
+.DS_Store
+Thumbs.db
+playwright-report/
+test-results/
+.vite/
+*.tsbuildinfo
+.idea/
+.vscode/*
+!.vscode/extensions.json

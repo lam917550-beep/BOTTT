@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: telegram-super-bot
+    env: node
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npm run db:migrate && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
