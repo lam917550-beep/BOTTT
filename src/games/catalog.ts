@@ -140,7 +140,7 @@ export function buildGameCatalog(): GameDefinition[] {
       games.push({
         id: `g_${engine}_${String(v + 1).padStart(2, "0")}`,
         name: uniqueName(engine, v),
-        category: v % 7 === 0 && engine !== "coin_flip" ? GAME_CATEGORIES[v % GAME_CATEGORIES.length] : meta.category,
+        category: (v % 7 === 0 && engine !== "coin_flip" ? GAME_CATEGORIES[v % GAME_CATEGORIES.length] : meta.category) as GameCategory,
         engine,
         chance: meta.chance,
         minBet,
