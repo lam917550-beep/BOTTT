@@ -63,11 +63,11 @@ export function buildPetCatalog(): PetDefinition[] {
     const id = `p_${String(i + 1).padStart(3, "0")}`;
     const evo = i < 80 ? `p_${String(i + 21).padStart(3, "0")}` : null;
     pets.push({
-      id,
-      name: `${NAMES[i % NAMES.length]} ${category}`,
-      category,
-      rarity: i >= 118 ? "secret" : rarity,
-      personality,
+    id,
+    name: `${NAMES[i % NAMES.length]} ${category}`,
+    category: category as PetCategory,
+    rarity: (i >= 118 ? "secret" : rarity) as PetRarity,
+    personality: personality as PetPersonality,
       baseStats: {
         health: 80 + (i % 40),
         energy: 70 + (i % 30),
