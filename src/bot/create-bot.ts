@@ -322,7 +322,7 @@ export function createBot(deps: BotDeps): { bot: Bot; owner: OwnerNotifier } {
     try {
       const img = await deps.gemini.generateImage(prompt);
       const buf = Buffer.from(img.data, "base64");
-      await ctx.replyWithPhoto(Buffer.from(buf), { caption: withFooter(prompt.slice(0, 200), locale) });
+      await ctx.replyWithPhoto(new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength), { caption: withFooter(prompt.slice(0, 200), locale) });
     } catch (err) {
       void owner.send("WARNING", "img.fail", `Image failure: ${String(err)}`);
       await ctx.reply(withFooter(t("img.failed", locale), locale));
