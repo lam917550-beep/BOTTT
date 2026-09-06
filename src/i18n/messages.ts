@@ -796,7 +796,7 @@ export function interpolate(template: string, vars?: Record<string, string | num
 export function t(key: MessageKey, locale: Locale | string, vars?: Record<string, string | number>): string {
   const lang = parseLocale(locale, DEFAULT_LOCALE);
   const row = table[key];
-  const text = row[lang] ?? row[DEFAULT_LOCALE] ?? row.en;
+  const text = row[lang] ?? row[DEFAULT_LOCALE] ?? row.vi;
   return interpolate(text, vars);
 }
 
